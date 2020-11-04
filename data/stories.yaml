@@ -1,25 +1,5 @@
 version: "2.0"
-
-
 stories:
-- story: ask_domicile_biens_argent
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: domicile_biens_argent
-  - action: utter_domicile_biens_argent
-  - intent: affirm
-  - action: utter_aurevoir
-
-- story: ask_enfants
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: enfants
-  - action: utter_enfants
-  - intent: affirm
-  - action: utter_aurevoir
-
 - story: ask_meteo
   steps:
   - intent: greet
