@@ -1,28 +1,63 @@
 version: "2.0"
 stories:
-- story: ask_meteo
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: meteo
-  - action: utter_meteo
-  - intent: affirm
-  - action: utter_aurevoir
 
-- story: ask_divorce
+- story: stressé
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: divorce
-  - action: utter_divorce
-  - intent: affirm
-  - action: utter_aurevoir
+    - intent: stress
+    - action: utter_get_started
+    - intent: affirm
+    - action: action_set_music_preference
+    - slot_was_set:
+        - likes_music: True
+    - action: utter_awesome
+
+- story: Non stressé
+  steps:
+    - intent: stress
+    - action: utter_get_started
+    - intent: deny
+    - action: action_set_music_preference
+    - slot_was_set:
+        - likes_music: False
+    - action: utter_aurevoir
+
+
+- story: notaire form interjection
+  steps:
+  - intent: notaire
+  - action: notaire_form
+  - active_loop: notaire_form
+  - slot_was_set:
+    - requested_slot: notaire
+  - intent: explication_notaire_form
+  - action: utter_explication_notaire_form
+  - action: notaire_form
+
+- story: ville form contextual interjection
+  steps:
+  - intent: notaire
+  - action: notaire_form
+  - active_loop: notaire_form
+  - slot_was_set:
+    - requested_slot: ville
+  - intent: explication_notaire_form
+  - action: utter_explication_notaire_form
+  - action: notaire_form
+
+- story: locataires form contextal interjection
+  steps:
+  - intent: notaire
+  - action: notaire_form
+  - active_loop: notaire_form
+  - slot_was_set:
+    - requested_slot: locataires
+  - intent: explication_notaire_form
+  - action: utter_explication_notaire_form
+  - action: notaire_form
 
 #################      TRIBUNAL       #################
 - story: demande tribunal
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: tribunal
   - action: utter_tribunal
   - intent: affirm
@@ -35,8 +70,6 @@ stories:
 
 - story: demande tribunal agir avec un avocat a la cour
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: avec_ou_sans_avocat_a_la_cour
     entities:
        - avocat: avec
@@ -46,8 +79,6 @@ stories:
 
 - story: demande tribunal agir sans un avocat a la cour
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: avec_ou_sans_avocat_a_la_cour
     entities:
        - avocat: sans
@@ -57,8 +88,6 @@ stories:
 
 - story: demande tribunal procedures judiciaires conjoitns
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: procedures_judiciaires
     entities:
       - relation: conjoints
@@ -68,8 +97,6 @@ stories:
 
 - story: demande tribunal procedures judiciaires maries
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: procedures_judiciaires
     entities:
       - relation: maries
@@ -81,8 +108,6 @@ stories:
 #################      MEDIATION       #################
 - story: demande mediation
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: mediation
   - action: utter_mediation
   - intent: affirm
@@ -96,8 +121,6 @@ stories:
 #################      DIVORCE       #################
 - story: demande divorce
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: divorce
   - action: utter_divorce
   - intent: affirm
@@ -111,8 +134,6 @@ stories:
 #################      DOMICILE, BIENS ET ARGENT       #################
 - story: demande domicile, biens et argent
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: domicile_biens_argent
   - action: utter_domicile_biens_argent
   - intent: affirm
@@ -125,8 +146,6 @@ stories:
 
 - story: demande biens et argent
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: biens_et_argent
   - action: utter_biens_et_argent
   - intent: affirm
@@ -134,8 +153,6 @@ stories:
 
 - story: demande de maitien du niveau de vie
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: maintien_du_niveau_de_vie
   - action: utter_maintien_du_niveau_de_vie
   - intent: affirm
@@ -144,8 +161,6 @@ stories:
 #################      ENFANTS      #################
 - story: enfants
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: enfants
   - action: utter_enfants
   - intent: affirm
@@ -158,8 +173,6 @@ stories:
 
 - story: demande sante education religion et voyage
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: sante_education_religion_voyage
   - action: utter_sante_education_religion_voyage
   - intent: affirm
@@ -172,8 +185,6 @@ stories:
 
 - story: demande de pension alimentaire
   steps:
-  - intent: greet
-  - action: utter_greet
   - intent: pension_alimentaire
   - action: utter_pension_alimentaire
   - intent: affirm
@@ -185,31 +196,20 @@ stories:
   - action: utter_pension_alimentaire
 
 #################      AUTRES      #################
-- story: jesuisunrobot
-  steps:
-  - intent: jesuisunrobot
-  - action: utter_jesuisunrobot
-
 - story: aurevoir
   steps:
   - intent: aurevoir
   - action: utter_aurevoir
 
-- story: meteo
-  steps:
-  - intent: meteo
-  - action: utter_meteo
 
-- story: blague
+- story: homepage
   steps:
-  - intent: blague
-  - action: utter_blague
-
-- story: ask_homepage
-  steps:
-  - intent: greet
-  - action: utter_greet
   - intent: homepage
   - action: utter_homepage
   - intent: aurevoir
   - action: utter_aurevoir
+
+- story: soquij
+  steps:
+  - intent: soquij
+  - action: utter_soquij

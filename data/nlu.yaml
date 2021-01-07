@@ -1,76 +1,98 @@
 version: "2.0"
 nlu:
-#################      TRIBUNAL       #################
+- intent: chitchat/jesuisunrobot
+  examples: |
+    - Est ce que vous êtes un robot?
+    - Êtes vous un robot?
+    - Êtes vous humain?
+    - Est-ce que je parle avec un humain?
+    - Est-ce que je parle avec un robot?
+    - C'est quoi ton nom ?
+    - Comment on dit t'appeler?
+    - Est-ce que t'as un nom ?
+- intent: chitchat/meteo
+  examples: |
+    - Quel temps fait-il dehors ?
+    - Quelle température fait il aujourd'hui ?
+    - Quelles sont les prévisions pour demain ?
+    - Quelles sont les prévisions pour la semaine prochaine ?
+    - Quelle est la météo pour cette semaine ?
+    - C'est quoi la météo ?
+    - météo d'aujourd'hui
+- intent: chitchat/blague
+  examples: |
+    - Raconte moi une joke
+    - Dis moi une blague
+    - Est-ce que tu peux me raconter une blague ?
+- intent: faq/contact
+  examples: |
+    - Sur quel numéro je peux contacter juridiQC
+    - Comment avoir plus d'informations
+    - Contacter quelqu'un
+    - un numéro de téléphone
+    - Trouver un courriel de contact
+    - Service clientèle
+- intent: faq/autre
+  examples: |
+    - C'est quoi le but du site internet
+    - Comment protéger les citoyens
+- intent: explication_notaire_form
+  examples: |
+    - Peux tu m,expliquer pourquoi tu me demandes ?
+    - Peux tu m'en dire plus ?
+    - Explique moi
+    - Je veux avoir plus d'informations
+    - Je voudrais savoir pourquoi
+    - pourquoi ?
+    - Pourquoi tu me demandes ca
+    - Pourquoi c'est nécessaire
+    - Donne moi plus de détails
+    - Qu,est ce que cela veut dire ?
+    - pourquoi
 - intent: tribunal
   examples: |
-    - Comment fontionne la cour de justice au Québec?
-    - Quelles sont les étapes pour entamer une procédure judiciaire?
-    - Comment être représenté par un avocat?
-    - Comment on agir seule sans avocat?
-    - Quelles sont les procédures judiciaires pour conjoint de fait?
-    - questions-réponses sur la langue dans le milieu juridique
-    - Quelles sont les clés pour bien choisir son avocat?
-    - Comment l’avocat facture-t-il ses services ?
-
+    - Comment fonctionne un tribunal ?
+    - Comment s'entendre sans avoir recours aux tribunaux ?
 - intent: fonctionnement_de_la_cour
   examples: |
-    - Principales étapes juridiques d’un divorce
-    - Principales étapes d’une séparation entre conjoints de fait
-    - Immigration : les effets d’un divorce ou d’une séparation sur son statut
     - Comment se déroule l'audience ?
     - Aperçu d'une salle d'audience
     - Tout savoir sur le langage juridique du juge
     - Comment fontionne la cour de justice au Québec ?
-    - Quelles sont les étapes pour entamer une procédure judiciaire?
-    - Comment être représenté par un avocat?
-    - Quelles sont les procédures judiciaires pour conjoint de fait?
-    - questions-réponses sur la langue dans le milieu juridique
-    - Quelles sont les clés pour bien choisir son avocat ?
     - Faire reconnaître une décision rendue à l'extérieur du Québec
-
 - intent: avec_ou_sans_avocat_a_la_cour
   examples: |
     - qu’est-ce que ça implique d'agir seul [sans avocat]{"entity": "avocat", "value": "sans"} ?
     - Les procédures judiciaires, combien ça coûte ?
     - Se rendre à la Cour pour présenter une demande à un juge
     - Se préparer pour l'audience
+    - Comment l’avocat facture-t-il ses services ?
     - Préparer le protocole de l'instance
+    - Quelles sont les clés pour bien choisir son avocat?
     - Fixer une date pour se présenter devant un juge
     - Obtenir un jugement quand son ex ne se présente pas à la Cour
     - Comment on agir seule [sans avocat]{"entity": "avocat", "value": "sans"}?
-    - Entamer [seul]{"entity": "avocat", "value": "sans"} une procédure de divorce
     - Entamer [seul]{"entity": "avocat", "value": "sans"} une procédure de modification d’une pension alimentaire ou de garde d’enfant
-
 - intent: procedures_judiciares
   examples: |
-    - Comment fontionne la cour de justice au Québec?
     - Quelles sont les étapes pour entamer une procédure judiciaire?
     - Informations sur les procédures judiciares pour couple [mariés]{"entity": "relation", "value": "maries"}
     - Informations sur les procédures judiciares pour [conjoints]{"entity": "relation", "value": "conjoitns"}
     - Comment être représenté par un avocat?
-    - Comment on agir seule sans avocat?
     - Quelles sont les procédures judiciaires pour [conjoint de fait]{"entity": "relation", "value": "maries"}?
-    - questions-réponses sur la langue dans le milieu juridique
-    - Quelles sont les clés pour bien choisir son avocat?
-    - Comment l’avocat facture-t-il ses services ?
-
-
-#################      MEDIATION       #################
 - intent: mediation
   examples: |
     - Pourquoi aller en médiation ?
     - Se préparer pour la médiation
-    - Inviter son ex à aller en médiation	Le déroulement de la médiation familiale
+    - Inviter son ex à aller en médiation
+    - Le déroulement de la médiation familiale
     - La médiation, combien ça coûte ?
     - Officialiser les ententes conclues en médiation
     - Définition et le but de la médiation
-    - Officialiser les ententes conclues en médiation
-    - Comment s'entendre sans avoir recours aux tribunaux ?
     - S'entendre à l'amiable avec son conjoint
     - Est-ce qu'on doit être en chicane pour aller voir un médiateur familial ?
     - Des conseils pour aborder la médiatiom
 
-#################      DIVORCE      #################
 - intent: divorce
   examples: |
     - Quelles sont les procédures pour divorcer?
@@ -79,42 +101,39 @@ nlu:
     - Comment communiquer avec son ex mari ?
     - Comment organiser une séparation avec son mari?
     - conseils de parents en fin de mariage
-    - Étiquette de courriel pour les parents qui se séparent ou divorcent
     - Élaboration d'un plan parental lors d'une séparation
+    - Principales étapes juridiques d’un divorce
+    - Je veux divocer
+    - Comment divorcer
+    - J'envisage de divorcer
+    - Principales étapes d’une séparation entre conjoints de fait
 
-
-#################      DOMICILE, BIENS ET ARGENT       #################
+- intent: notaire
+  examples: |
+    - Je cherche un notaire
+    - Comment trouver un notaire
+    - J'ai besoin d'un notaire
+    - Où trouver un notaire à [montréal](ville) ?
+    - Comment chercher un notaire à [laval](ville) ou à [longueuil](ville) ?
+    - Trouver un notare à [québec](ville)
+    - J'ai un [condo](immobiler) à Montréal
 
 - intent: domicile_biens_argent
   examples: |
     - usage du domicile familial
     - partage des biens et des dettes
-    - Que peut-on emporter lorsqu’on quitte le domicile familial ?
     - Récupérer ses meubles et effets personnels laissés dans le domicile
-    - Qui peut rester dans le domicile familial ?
-
 - intent: domicile
   examples: |
     - Que peut-on emporter lorsqu’on quitte le domicile familial ?
     - Usage du domicile familial ?
     - Qui peut rester dans le domicile familial ?
-    - Comment faire avec la maison partagée ?
-    - Qui garde le condo ou l'appartement ?
-    - Propriétaires d'un chalet
-
 - intent: biens_et_argent
   examples: |
-    - Que peut-on emporter lorsqu’on quitte le domicile familial ?
-    - Usage du domicile familial ?
-    - Qui peut rester dans le domicile familial ?
-    - Comment faire avec la maison partagée ?
-    - Qui garde le condo ou l'appartement ?
-    - Propriétaires d'un chalet
     - Hypothèque, frais d’entretien, assurance : les dépenses liées à la maison à la séparation
     - Partage des biens et des dettes
     - Récupérer ses meubles et effets personnels
     - Comment séparer les biens lors d'une séparation ?
-
 - intent: maintien_du_niveau_de_vie
   examples: |
     - Cartes de crédit communes : quels sont vos droits en cas de séparation ?
@@ -124,10 +143,6 @@ nlu:
     - Conjoints de fait : répartir les biens à la séparation
     - Partager les régimes et les placements de retraite
     - La gestion du REEE de votre enfant à la séparation
-    - Comment séparer les biens lors d'une séparation ?
-
-
-#################      ENFANTS      #################
 - intent: garde
   examples: |
     - Quel mode de garde pour l'enfant
@@ -152,10 +167,8 @@ nlu:
     - Comment faire pour que le père soit déchu de ses droits parentaux ?
     - Qui a la garde en cas de séparation ?
     - Qui s'occupe des enfants ?
-
 - intent: sante_education_religion_voyage
   examples: |
-    - Cartes de crédit communes : quels sont vos droits en cas de séparation ?
     - Pour la santé de l’enfant qui doit décider ?
     - Pour l'éducation et religion de l’enfant qui doit décider ?
     - Pour les personnes que l'enfant peut fréquenter qui doit décider ?
@@ -165,13 +178,10 @@ nlu:
     - Décision sur la santé et l'éducation des enfants
     - Quelle éducation religieuse pour son enfants
     - Comment les enfants vivent la séparation ?
-
-
 - intent: pension_alimentaire
   examples: |
-    - Cartes de crédit communes : quels sont vos droits en cas de séparation ?
     - À quoi sert la pension alimentaire pour enfant ?
-    -  Qui peut demander la pension alimentaire et comment s’y prendre ?
+    - Qui peut demander la pension alimentaire et comment s’y prendre ?
     - Demander une pension alimentaire rétroactive
     - Calculer la pension alimentaire
     - Comment établir le revenu des parents pour calculer la pension alimentaire pour enfant ?
@@ -190,9 +200,6 @@ nlu:
     - Montant fixe pour la pension
     - Payer un montant une fois
     - Quelle est le montant moyen d'une pension alimentaire?
-
-
-#################      AUTRES      #################
 - intent: greet
   examples: |
     - hey
@@ -200,7 +207,11 @@ nlu:
     - bonjour
     - salut
     - bonsoir
-
+    - hi
+    - Hi
+    - Hello
+    - Hallo
+    - Allo
 - intent: aurevoir
   examples: |
     - bonne journée
@@ -208,9 +219,6 @@ nlu:
     - bonne soirée
     - à la prochaine
     - au revoir
-    - non merci
-    - merci
-
 - intent: affirm
   examples: |
     - oui
@@ -225,6 +233,7 @@ nlu:
     - génial
     - cool
     - pourquoi pas
+    - yes
 
 - intent: deny
   examples: |
@@ -233,14 +242,7 @@ nlu:
     - je ne pense pas
     - je ne crois pas
     - impossible
-
-- intent: jesuisunrobot
-  examples: |
-    - Est ce que vous êtes un robot?
-    - Êtes vous un robot?
-    - Êtes vous humain?
-    - Est-ce que je parle avec un humain?
-    - Est-ce que je parle avec un robot?
+    - no
 
 - intent: homepage
   examples: |
@@ -248,18 +250,35 @@ nlu:
     - Avez-vous des conseils à me donner pour mon problème ?
     - A quoi servez-vous ?
     - Quels sont les solutions que vous avez pour moi ?
-
-
-- intent: meteo
+- intent: out_of_scope
   examples: |
-    - Quel temps fait-il dehors ?
-    - Quelle température fait il aujourd'hui ?
-    - Quelles sont les prévisions pour demain ?
-    - Quelles sont les prévisions pour la semaine prochaine ?
-    - Quelle est la météo pour cette semaine ?
-
-- intent: blague
+    - 415152662727672727
+    - hjshshjsadhdakjhkjhskdjhaskjhda
+    - oiuoiuqwoiueq
+    - hshsjsksjsksksksksksks
+    - 8767yguhde73
+- intent: soquij
   examples: |
-    - Raconte moi une joke
-    - Dis moi une blague
-    - Est-ce que tu peux me raconter une blague ?
+    - C'est quoi la soquij ?
+    - C'est qui la SOQUIJ
+    - Comment est organisé la SOQUIJ ?
+    - pourquoi SOQUIJ
+
+- intent: stress
+  examples: |
+    - Je suis stressé
+    - je stress quotidiennement
+    - Je n'arrives pas a me détendre
+    - Je stress souvent
+
+- synonym: sans
+  examples: |
+    - sans avocat
+    - seul
+- synonym: maries
+  examples: |
+    - mariés
+    - conjoint de fait
+- synonym: conjoitns
+  examples: |
+    - conjoints
