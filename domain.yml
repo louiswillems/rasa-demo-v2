@@ -37,6 +37,7 @@ intents:
 - stress
 - utter_get_started
 - notaire
+- stop
 entities:
 - relation
 - avocat
@@ -61,11 +62,9 @@ slots:
     influence_conversation: true
   locataires:
     type: text
-    auto_fill: false
     influence_conversation: false
   notaire:
     type: text
-    auto_fill: false
     influence_conversation: false
   relation:
     type: categorical
@@ -74,11 +73,10 @@ slots:
     - maries
     - conjoints
   requested_slot:
-    type: unfeaturized
+    type: any
     influence_conversation: false
   ville:
     type: text
-    auto_fill: false
     influence_conversation: false
 responses:
   utter_tribunal:
@@ -100,6 +98,10 @@ responses:
   utter_divorce:
   - text: Merci pour votre question. Vous pouvez trouver des informations pour une
       demande de divorce [en cliquant ici](https://juridiqc.gouv.qc.ca/en/separation-and-divorce/)
+  utter_divorce_test:
+  - text: Merci pour votre question. Êtes-vous actuellement marié ?
+  utter_divorce_test_affirm:
+  - text: Merci !
   utter_domicile:
   - text: Vous pouvez trouver des informations concernant les question d'usage du
       [domicile et les meubles ici](https://juridiqc.gouv.qc.ca/separation-et-divorce/domicile-biens-argent/domicile/)
@@ -120,8 +122,8 @@ responses:
   utter_greet:
   - text: Allo!, comment je peux vous aider ?
   utter_bienvenue:
-  - text: Allo! Je suis le super chatbot de la [SOQUIJ](https://soquij.qc.ca/) ! :)
-      Comment je peux vous aider aujourd'hui ?
+  - text: Allo! Je suis le super chatbot de la [SOQUIJ](https://soquij.qc.ca/) ! Comment
+      je peux vous aider aujourd'hui ?
   utter_aurevoir:
   - text: À bientôt
   utter_chitchat/jesuisunrobot:
@@ -185,12 +187,14 @@ responses:
       title: Partage des biens
     text: Avez-vous des questions concernant les procédures pour un divorce, la garde
       de vos enfants ou le partage desa biens ?
-  utter_ask_notaire:
-  - text: Voulez-vous entammer une procédure de divorce ?
-  utter_ask_ville:
+  utter_ask_notaire_form_notaire:
+  - text: Voulez vous trouver un notaire près de chez vous ?
+  utter_ask_notaire_form_ville:
   - text: Quel genre de domicile avait vous ?
-  utter_ask_locataires:
-  - text: Êtes-vous locataires du domicile ?
+  utter_ask_notaire_form_locataires:
+  - text: Voulez vous un notaire pour votre problème ?
+  utter_ask_continue:
+  - text: Voulez-vous arrêter ces questions ?
   utter_submit:
   - text: Parfait !
   utter_slots_values:

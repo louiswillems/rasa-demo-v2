@@ -244,6 +244,14 @@ nlu:
     - impossible
     - no
 
+- intent: stop
+  examples: |
+    - je veux arrêter ces questions
+    - pourquoi me demander ce genre de questions
+    - arrête
+    - je ne veux plus répondre
+    - stop
+
 - intent: homepage
   examples: |
     - Pouvez vous m'aider ?

@@ -22,6 +22,27 @@ stories:
     - action: utter_aurevoir
 
 
+- story: demande divorce
+  steps:
+    - intent: divorce
+    - action: utter_divorce_test
+    - intent: affirm
+    - action: action_set_music_preference
+    - slot_was_set:
+        - likes_music: True
+    - action: utter_divorce
+
+- story: Pas de demande de divorce
+  steps:
+    - intent: divorce
+    - action: utter_divorce_test
+    - intent: deny
+    - action: action_set_music_preference
+    - slot_was_set:
+        - likes_music: False
+    - action: utter_aurevoir
+
+
 - story: notaire form interjection
   steps:
   - intent: notaire
@@ -39,6 +60,8 @@ stories:
   - action: notaire_form
   - active_loop: notaire_form
   - slot_was_set:
+    - requested_slot: notaire
+  - slot_was_set:
     - requested_slot: ville
   - intent: explication_notaire_form
   - action: utter_explication_notaire_form
@@ -54,6 +77,18 @@ stories:
   - intent: explication_notaire_form
   - action: utter_explication_notaire_form
   - action: notaire_form
+
+
+- story: User interrupts the form and doesn't want to continue
+  steps:
+  - intent: notaire
+  - action: notaire_form
+  - active_loop: notaire_form
+  - intent: stop
+  - action: utter_ask_continue
+  - intent: stop
+  - action: action_deactivate_loop
+  - active_loop: null
 
 #################      TRIBUNAL       #################
 - story: demande tribunal
@@ -103,9 +138,8 @@ stories:
   - action: utter_procedures_judiciaires_maries
   - intent: affirm
   - action: utter_aurevoir
-##########################################################
 
-#################      MEDIATION       #################
+#################      MEDIATION       ###############
 - story: demande mediation
   steps:
   - intent: mediation
@@ -119,17 +153,17 @@ stories:
   - action: utter_mediation
 
 #################      DIVORCE       #################
-- story: demande divorce
-  steps:
-  - intent: divorce
-  - action: utter_divorce
-  - intent: affirm
-  - action: utter_aurevoir
-
-- story: demande divorce
-  steps:
-  - intent: divorce
-  - action: utter_divorce
+#- story: demande divorce
+#  steps:
+#  - intent: divorce
+#  - action: utter_divorce
+#  - intent: affirm
+#  - action: utter_aurevoir
+#
+#- story: demande divorce
+#  steps:
+#  - intent: divorce
+#  - action: utter_divorce
 
 #################      DOMICILE, BIENS ET ARGENT       #################
 - story: demande domicile, biens et argent

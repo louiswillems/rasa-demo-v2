@@ -1,4 +1,11 @@
 {
+  "faq/contact": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 6,
+    "confused_with": {}
+  },
   "chitchat/jesuisunrobot": {
     "precision": 1.0,
     "recall": 1.0,
@@ -20,13 +27,6 @@
     "support": 2,
     "confused_with": {}
   },
-  "faq/contact": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 2,
-    "confused_with": {}
-  },
   "chitchat/meteo": {
     "precision": 1.0,
     "recall": 1.0,
@@ -39,12 +39,12 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 22
+    "support": 26
   },
   "weighted avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 22
+    "support": 26
   }
 }
