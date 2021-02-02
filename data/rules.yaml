@@ -2,8 +2,8 @@ version: "2.0"
 rules:
 
   - rule: Message de bienvenue
-    conversation_start: true  # this rule only applies at the beginning of a conversation
-    steps:                    # If a user sends a message with the intent greet later in the conversation, the rule will not match.
+#    conversation_start: true  # this rule only applies at the beginning of a conversation. If a user sends a message with the intent greet later in the conversation, the rule will not match.
+    steps:
       - intent: greet
       - action: utter_bienvenue
 
