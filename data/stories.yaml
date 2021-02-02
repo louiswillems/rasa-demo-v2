@@ -166,13 +166,6 @@ stories:
 #  - action: utter_divorce
 
 #################      DOMICILE, BIENS ET ARGENT       #################
-- story: demande domicile, biens et argent
-  steps:
-  - intent: domicile_biens_argent
-  - action: utter_domicile_biens_argent
-  - intent: affirm
-  - action: utter_aurevoir
-
 - story: demande domicile
   steps:
   - intent: domicile
